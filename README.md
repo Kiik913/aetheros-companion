@@ -1,4 +1,3 @@
-Below is the updated full README. I used **AuraOS (working name)** as the OS name; replace it if your OS has a different name.
 
 ---
 
