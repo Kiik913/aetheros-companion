@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AetherOS",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "AetherOS — a futuristic web desktop operating system.",
   "action": { "default_title": "Open AetherOS" },
   "background": { "service_worker": "background.js" },
@@ -13,11 +13,16 @@
       "matches": ["http://*/*", "https://*/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["framebuster.js"],
+      "all_frames": true,
+      "run_at": "document_start",
+      "match_about_blank": true
     }
   ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "host_permissions": ["<all_urls>"],
   "permissions": [
     "tabs",
     "contextMenus",
