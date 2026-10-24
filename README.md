@@ -47,6 +47,8 @@ AuraOS is not just a kernel. It is an ecosystem:
 - A low-spec computing target that can help revive older hardware and reduce e-waste.
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/579bd1a3-2ec2-44b8-8948-1f30511b79d2" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/261853c5-e15f-4d36-9779-15768c06ba60" />
 
 ## Official Links
 
