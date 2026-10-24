@@ -368,12 +368,24 @@ function renderCustomApp(container,winId,app){
       <button class="mini-btn" id="cust-nt-${winId}">↗ New Tab</button>
       <button class="mini-btn" id="cust-edit-${winId}">✏️ Edit</button>
     </div>
-    <iframe src="${sanitizeHTML(app.url)}" style="flex:1;border:none;background:#fff;min-height:0;" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-clipboard-write" referrerpolicy="no-referrer"></iframe>
+    <iframe id="cust-frame-${winId}" src="${sanitizeHTML(app.url)}" style="flex:1;border:none;background:#fff;min-height:0;" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-clipboard-write allow-storage-access-by-user-activation" referrerpolicy="no-referrer"></iframe>
   </div>`;
   document.getElementById(`cust-nt-${winId}`).onclick=()=>window.open(app.url,'_blank','noopener,noreferrer');
   document.getElementById(`cust-edit-${winId}`).onclick=()=>openCustomAppModal(app.id);
-}
 
+  // Detect silent refusal (some sites load a blank page instead of throwing)
+  const frame = document.getElementById(`cust-frame-${winId}`);
+  let loaded = false;
+  frame.addEventListener('load', () => { loaded = true; });
+  setTimeout(() => {
+    if (!loaded) {
+      toast('Embed Blocked',
+        `"${app.name}" refused to connect. Try the ↗ New Tab button.`,
+        'warn', 6000,
+        '↗ Open in Tab', () => window.open(app.url, '_blank', 'noopener,noreferrer'));
+    }
+  }, 8000);
+}
 function initCustomAppModal(){
   document.getElementById('ca-cancel').onclick = closeCustomAppModal;
   document.getElementById('ca-x').onclick      = closeCustomAppModal;
