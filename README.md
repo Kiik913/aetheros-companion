@@ -409,6 +409,81 @@ We welcome contributions from the community. Please read `CONTRIBUTING.md` for c
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
 ---
+# 🌌 AetherOS — The Web Desktop OS (Chrome Extension)
+
+![Version](https://img.shields.io/badge/version-7.1.0-blue.svg)
+![Manifest](https://img.shields.io/badge/Manifest-V3-success.svg)
+![License](https://img.shields.io/badge/License-MIT-purple.svg)
+
+**AetherOS** is a futuristic, fully-featured desktop operating system that runs entirely inside your Chrome browser as an extension. It combines the power of a traditional OS—window management, virtual file systems, and an app store—with the limitless potential of the web.
+
+No servers. No downloads. Just open the extension and boot up your virtual workspace.
+
+---
+
+## ✨ Features
+
+*   🪟 **Complete Window Manager:** Draggable, resizable windows with macOS-style traffic lights, snapping (¼ screen, half screen), and minimize/maximize controls.
+*   📱 **The App Store & Custom Apps:** Install built-in tools (Terminal, Paint, Kanban, Calculator, Media Player) or add **any website** as a Custom App.
+*   🌐 **Iframe Bypass Engine:** Tired of `X-Frame-Options` blocking your web apps? AetherOS includes a powerful network and script-level bypass to embed sites that normally refuse to connect (like GitHub).
+*   🤖 **Aura AI Assistant:** A deeply integrated AI chatbot powered by **Puter.js**. Right-click any text on any website to "Ask Aura", or use the built-in AI chat window.
+*   📂 **Virtual File System (VFS):** Create, edit, and save text files, images, and notes directly to your browser's local storage. Includes a fully functional Trash bin and Storage dashboard.
+*   ⌨️ **Command Palette & Quick Search:** Press `Ctrl+K` (or `Cmd+K`) to instantly search your apps, files, notes, and AI history, or type a web query.
+*   🖥️ **Multiple Workspaces:** Keep your gaming, work, and dev apps separated across 4 different virtual desktops.
+*   🎨 **Deep Customization:** Change accent colors, glass opacity, live wallpapers, icon glow, and even the window control style (Windows vs. macOS).
+
+---
+
+## 🔓 The "No-Refuse" Iframe Engine
+
+One of the biggest challenges in web development is embedding sites like GitHub, YouTube, or Reddit, which use security headers (`X-Frame-Options` and `Content-Security-Policy`) and JavaScript "frame-busting" to prevent being loaded inside a window. 
+
+AetherOS solves this using a two-pronged approach:
+1.  **Network Level (`rules.json`):** Uses Chrome's `declarativeNetRequest` API to intercept and strip out `X-Frame-Options` and restrictive `CSP` headers before they reach the browser.
+2.  **Script Level (`framebuster.js`):** Injects a script at `document_start` into every iframe to neutralize `window.top`, `window.parent`, and `window.frameElement`. This prevents the website's JavaScript from detecting it's inside a frame and breaking out.
+
+---
+
+## 🚀 Installation (Developer Mode)
+
+Since AetherOS is currently in active development, you can load it as an unpacked extension:
+
+1. Clone or download this repository to your local machine.
+2. Open Google Chrome and go to `chrome://extensions/`.
+3. Turn on **Developer mode** (toggle in the top right corner).
+4. Click the **Load unpacked** button in the top left.
+5. Select the `AetherOS` folder (where `manifest.json` is located).
+6. Click the AetherOS icon in your Chrome toolbar to boot up your new OS!
+
+---
+
+## 🛠️ Tech Stack
+
+*   **Core:** HTML5, Vanilla JavaScript (ES6+), CSS3 (CSS Variables for dynamic theming).
+*   **Architecture:** Chrome Extension Manifest V3 (Service Workers, Content Scripts, declarativeNetRequest).
+*   **AI Engine:** Puter.js (Serverless AI integration).
+*   **Storage:** Browser `localStorage` (for the virtual file system and settings) and `chrome.storage.local` (for extension state).
+
+---
+
+## ⚠️ Known Limitations
+
+*   **Authentication (Cookies):** Because browsers heavily restrict cross-site cookies (`SameSite=Lax/Strict`), you may not be able to log into sites (like GitHub or Twitter) *inside* the iframe. Use the **↗ New Tab** button inside the app window to log in externally!
+*   **YouTube Player:** YouTube's homepage loads perfectly, but clicking a video may fail due to their strict embed rules. (Use the built-in `Aura YouTube` app for videos!).
+*   **Heavy Security Sites:** Banks and high-security portals will still refuse to connect. The extension will alert you after 8 seconds to open it in a real tab.
+
+---
+
+## 🔮 Roadmap (Coming Soon)
+
+*   [ ] **Web Clipper:** Right-click images/links to save them directly to your AetherOS desktop.
+*   [ ] **Aura Vision:** AI screen analysis (screenshot your desktop and ask Aura to fix an error).
+*   [ ] **Chrome Tab Integration:** Manage your real browser tabs directly from the AetherOS taskbar.
+*   [ ] **Global Clipboard:** Synchronize copied text from any website into the AetherOS clipboard app.
+
+---
+
+*Built with ☕ and an obsession with defying iframe security.*
 
 ## Acknowledgments
 
