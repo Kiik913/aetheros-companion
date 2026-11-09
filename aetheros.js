@@ -80,7 +80,17 @@ const EXTERNAL_OS = [
   { id:'macosweb', name:'macOS Web', icon:'🍎', url:'https://macos-web.app/', desc:'macOS desktop simulation.' },
   { id:'winxpvercel', name:'WinXP React', icon:'🟦', url:'https://winxp.vercel.app/', desc:'Windows XP desktop recreation.' },
   { id:'win10web', name:'Windows 10', icon:'🖥️', url:'https://win-10.vercel.app/', desc:'Windows 10 desktop recreation.' },
-  { id:'win11react', name:'Windows 11', icon:'💠', url:'https://win11.blueedge.me/', desc:'Windows 11 desktop recreation.' }
+  { id:'win11react', name:'Windows 11', icon:'💠', url:'https://win11.blueedge.me/', desc:'Windows 11 desktop recreation.' },
+  // ===== Featured Web Apps & Links =====
+{ id:'auralab3',   name:'Aura Lab 3',       icon:'🧪', url:'https://codepen.io/Kavyant-Kumar/pen/01a0756c-8113-764d-bfe9-462dbedbfe7c', desc:'Aura Lab: Cares & Laughs 3 — creative playground.', category:'internet' },
+{ id:'googlemaps', name:'Google Maps',      icon:'🗺️', url:'https://www.google.com/maps',                                                   desc:'Explore the world with interactive maps.',          category:'internet' },
+{ id:'bauhaus',    name:'Harmonic Bauhaus', icon:'🎨', url:'https://codepen.io/Kavyant-Kumar/pen/019d6cc7-043a-7daa-953a-ef2afdde3698', desc:'Generative Bauhaus pattern designer.',              category:'internet' },
+{ id:'auralab1',   name:'Aura Lab 1',       icon:'🧪', url:'https://codepen.io/Kavyant-Kumar/pen/0199f2c2-ab39-7988-a2eb-f5a66a4ad672', desc:'Aura Lab: Cares & Laughs 1 — creative playground.', category:'internet' },
+{ id:'kiik913',    name:'Kiik913 · GitHub', icon:'🐙', url:'https://github.com/Kiik913',                                                    desc:'Developer profile on GitHub.',                      category:'internet' },
+{ id:'kavyanthub', name:'Kavyanthub',       icon:'📸', url:'https://www.instagram.com/kavyanthub/',                                         desc:'Instagram profile — @kavyanthub.',                  category:'internet' },
+{ id:'auralab',    name:'Aura Lab Server',  icon:'💬', url:'https://discord.com/channels/1505857480503197696/1505857672597999736',          desc:'Aura Lab community on Discord.',                    category:'internet' },
+{ id:'carelab',    name:'CareLab Studio',   icon:'🎬', url:'https://www.youtube.com/@CareLabStudio',                                        desc:'YouTube channel — CareLab Studio.',                 category:'internet' },
+{ id:'youtube',    name:'YouTube',          icon:'▶️', url:'https://www.youtube.com/',                                                      desc:'YouTube homepage.',                                 category:'internet' }
 ];
 
 const APPS = [
@@ -119,7 +129,7 @@ const APPS = [
   { id:'tictactoe', name:'Tic-Tac-Toe', icon:'❌', category:'games', desc:'Play against an unbeatable AI.' },
   { id:'dice', name:'Dice Roller', icon:'🎲', category:'games', desc:'Roll D4–D20 dice.' },
   { id:'coin', name:'Coin Flip', icon:'🪙', category:'games', desc:'Heads or tails.' },
-  ...EXTERNAL_OS.map(o => ({ id:o.id, name:o.name, icon:o.icon, category:'os', desc:o.desc, isExternalOS:true }))
+ ...EXTERNAL_OS.map(o => ({ id:o.id, name:o.name, icon:o.icon, category: o.category || 'os', desc:o.desc, isExternalOS:true }))
 ];
 
 const SEARCH_ENGINES = {
